@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Linux | Python should be functionnal
-      command: /usr/local/python{{ ansible_env.python_version[:3] }}/bin/python{{ ansible_env.python_version[:3] }} --version
+      command: /usr/local/python{{ ansible_env.python_version.split('.')[:2] | join('.') }}/bin/python{{ ansible_env.python_version.split('.')[:2] | join('.') }} --version
       ignore_errors: yes
       register: python_result
 
